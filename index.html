@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Behavior Timeout Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            margin: 50px auto;
+            padding: 20px;
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h5 {
+            margin-bottom: 10px;
+        }
+
+        #timer-display {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+
+
+
+
+
+        .buttons button, .settings button {
+            margin: 5px;
+            padding: 8px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .settings {
+            margin-top: 20px;
+        }
+
+#add-minute{background-color: red; color: white; border-radius: 3px;}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+<p>Bad Behavior</p>
+        <h1>Timeout Timer</h1>
+<style>
+
+    .re2{background-color: rgb(0, 47, 78);
+    
+color: rgb(255, 250, 200);
+
+
+    }
+</style>
+
+<div class="re2">
+        <h1>Trusted By</h1>
+
+
+<div id="sfc8l9q5uln7fd94tc19xu4qfndha9qpma1"></div><script type="text/javascript" 
+src="https://counter1.optistats.ovh/private/counter.js?c=8l9q5uln7fd94tc19xu4qfndha9qpma1&down=async" 
+async></script><a href="https://www.freecounterstat.com"></a><noscript>
+    <a href="https://www.freecounterstat.com" title="web counter">
+<img src="https://counter1.optistats.ovh/private/freecounterstat.php?c=8l9q5uln7fd94tc19xu4qfndha9qpma1"
+ title="web counter" alt="web counter"></a></noscript>
+
+
+
+
+
+        <h1>Parents Worldwide</h1>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+        <div class="child-name">
+            <label for="name-input">Enter Child’s Name:</label>
+            <input type="text" id="name-input">
+            <button id="save-name">Save Name</button>
+            <h5 id="child-name-display">Child: [Not Set]</h5>
+        </div>
+
+        <div id="timer-display">05:00</div>
+        <div class="buttons">
+            <button id="start">Start</button>
+            <button id="pause">Pause</button>
+            <button id="reset">Reset</button>
+            <button id="add-minute">+1 Minute</button>
+        </div>
+
+        <div class="settings">
+            <label for="custom-time">Set Custom Time (minutes):</label>
+            <input type="number" id="custom-time" min="1">
+            <button id="set-time">Set Timer</button>
+        </div>
+    </div>
+
+    <script>
+        let timer;
+        let timeLeft = 300;
+        let isPaused = false;
+
+        function updateDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById("timer-display").textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        document.getElementById("save-name").addEventListener("click", () => {
+            const name = document.getElementById("name-input").value;
+            document.getElementById("child-name-display").textContent = name ? `Child: ${name}` : "Child: [Not Set]";
+        });
+
+        document.getElementById("start").addEventListener("click", () => {
+            if (!timer) {
+                timer = setInterval(() => {
+                    if (!isPaused && timeLeft > 0) {
+                        timeLeft--;
+                        updateDisplay();
+                    } else if (timeLeft === 0) {
+                        clearInterval(timer);
+                        timer = null;
+                        alert("Time out for bad behavior!");
+                    }
+                }, 1000);
+            }
+        });
+
+        document.getElementById("pause").addEventListener("click", () => {
+            isPaused = !isPaused;
+        });
+
+        document.getElementById("reset").addEventListener("click", () => {
+            clearInterval(timer);
+            timer = null;
+            timeLeft = 300;
+            isPaused = false;
+            updateDisplay();
+        });
+
+        document.getElementById("add-minute").addEventListener("click", () => {
+            timeLeft += 60;
+            updateDisplay();
+        });
+
+        document.getElementById("set-time").addEventListener("click", () => {
+            let customTime = document.getElementById("custom-time").value;
+            if (customTime > 0) {
+                timeLeft = customTime * 60;
+                updateDisplay();
+            }
+        });
+
+        updateDisplay();
+    </script>
+
+
+Is this kid good now?
+<button>Turn into good child!</button>
+</body>
+</html>
+
+
+
+
+
+
+<style>
+
+
+
+    .c1{
+
+background-color: orange;
+
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+<div class="c1">
+
+<h1>Comments:</h1>
+
+<div>
+    <h2>Leave a Comment</h2>
+    <input type="text" id="name" placeholder="Your Name">
+    <textarea id="description" placeholder="Your Comment"></textarea>
+    <input type="url" id="link" placeholder="Your Website (optional)">
+    <button onclick="addComment()">Post Comment</button>
+    
+    <div id="comments">
+        <h3>Comments</h3>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", loadFakeComments);
+
+    async function getUserCountry() {
+        try {
+            const response = await fetch("https://ip-api.com/json/");
+            const data = await response.json();
+            return data.country || "United Kingdom";
+        } catch (error) {
+            return "United Kingdom";
+        }
+    }
+
+    function getFormattedDateTime() {
+        const now = new Date();
+        const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+        const month = months[now.getMonth()];
+        const day = String(now.getDate()).padStart(2, '0');
+        const year = now.getFullYear();
+        let hours = now.getHours();
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const ampm = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12 || 12;
+        return `[${month}/${day}/${year}]{${hours}:${minutes}:${seconds}=${ampm}}`;
+    }
+
+    async function addComment() {
+        const name = document.getElementById("name").value;
+        const description = document.getElementById("description").value;
+        const link = document.getElementById("link").value;
+        const timestamp = getFormattedDateTime();
+        const country = await getUserCountry();
+
+        if (name && description) {
+            const commentSection = document.getElementById("comments");
+            const comment = document.createElement("div");
+            comment.innerHTML = `
+                <p><strong>${name}</strong> (${country}) - ${timestamp}</p>
+                <p>${description}</p>
+                ${link ? `<a href="${link}" target="_blank">${link}</a>` : ""}
+                <hr>
+            `;
+            commentSection.appendChild(comment);
+        }
+    }
+
+    function loadFakeComments() {
+        const fakeComments = [
+
+         
+        
+             { name: "Noah Noman", description: "TEST SUBJECT", link: "", timestamp: "[MAY/27/2025]{12:25:30=PM}", country: "United Kingdom" },   
+        { name: "HEHE", description: "this is terrible", link: "", timestamp: "[MAY/15/2025]{09:25:45=AM}", country: "United States" },
+          
+         { name: "HEHE", description: "get a life, get a job:", link: "", timestamp: "[MAY/15/2025]{09:25:32=AM}", country: "United States" },
+
+        ];
+
+        fakeComments.forEach(({ name, description, link, timestamp, country }) => {
+            const commentSection = document.getElementById("comments");
+            const comment = document.createElement("div");
+            comment.innerHTML = `
+                <p><strong>${name}</strong> (${country}) - ${timestamp}</p>
+                <p>${description}</p>
+                ${link ? `<a href="${link}" target="_blank">${link}</a>` : ""}
+                <hr>
+            `;
+            commentSection.appendChild(comment);
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+</div>
